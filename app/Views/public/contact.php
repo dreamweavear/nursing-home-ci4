@@ -26,7 +26,7 @@
                     </div>
                     <div class="flex-grow-1 ms-3">
                         <h5>Address</h5>
-                        <p class="text-muted mb-0">123 Healthcare Street, Medical City<br>State - 123456, India</p>
+                        <p class="text-muted mb-0">Besides Hero Honda Agency, Allahabad Road,NH-7,Urrhat <br>State - M.P., India</p>
                     </div>
                 </div>
                 
@@ -38,7 +38,7 @@
                     </div>
                     <div class="flex-grow-1 ms-3">
                         <h5>Phone</h5>
-                        <p class="text-muted mb-0">Emergency: +91 12345 67890<br>Reception: +91 12345 67891</p>
+                        <p class="text-muted mb-0">Emergency: +91 9424507187<br>Reception: +91 9229426486</p>
                     </div>
                 </div>
                 
@@ -50,7 +50,7 @@
                     </div>
                     <div class="flex-grow-1 ms-3">
                         <h5>Email</h5>
-                        <p class="text-muted mb-0">info@shankarnursing.com<br>appointments@shankarnursing.com</p>
+                        <p class="text-muted mb-0">info@shankarnursing.com<br>shrivastavaramprakash@Yahoo.com</p>
                     </div>
                 </div>
                 

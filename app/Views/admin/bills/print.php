@@ -44,9 +44,9 @@
             <div class="row">
                 <div class="col-8">
                     <h2 class="bill-title mb-2">Shankar Nursing Home</h2>
-                    <p class="mb-1">123 Healthcare Street, Medical City</p>
-                    <p class="mb-1">Phone: +91 12345 67890</p>
-                    <p class="mb-0">Email: info@shankarnursing.com</p>
+                    <p class="mb-1">Besides Hero Honda Agency, NH-7, Allahabad Road, Urrhat,Rewa(M.P.)</p>
+                    <p class="mb-1">Phone: +91 9424507187, 9229426486</p>
+                    <p class="mb-0">Email: shrivastavaramprakash@yahoo.com</p>
                 </div>
                 <div class="col-4 text-end">
                     <h4 class="text-muted">INVOICE</h4>
@@ -85,11 +85,11 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>Room Charges</td>
+                    <td>Room Charges[  &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;] x No of Days[ &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;]</td>
                     <td class="text-end"><?= number_format($bill['room_charges'], 2) ?></td>
                 </tr>
                 <tr>
-                    <td>Doctor Fees</td>
+                    <td>Doctors Visiting Charges</td>
                     <td class="text-end"><?= number_format($bill['doctor_fees'], 2) ?></td>
                 </tr>
                 <tr>
@@ -97,12 +97,12 @@
                     <td class="text-end"><?= number_format($bill['medicine_charges'], 2) ?></td>
                 </tr>
                 <tr>
-                    <td>Test Charges</td>
+                    <td>Investigation Charges</td>
                     <td class="text-end"><?= number_format($bill['test_charges'], 2) ?></td>
                 </tr>
                 <tr>
-                    <td>Other Charges</td>
-                    <td class="text-end"><?= number_format($bill['other_charges'], 2) ?></td>
+                    <td>Other Charges ( Surgeon, Aneastheasia, pediatrician, OT charges, Assistance Charges </td>
+                    <td class="text-end"><?= number_format($bill['other_charges'], 2) ?></td> 
                 </tr>
             </tbody>
             <tfoot>

@@ -580,14 +580,14 @@
                 </div>
                 <div class="col-lg-3 col-md-6 mb-4">
                     <h5>Contact Info</h5>
-                    <p><i class="bi bi-geo-alt me-2"></i>123 Healthcare Street, Medical City</p>
-                    <p><i class="bi bi-telephone me-2"></i>+91 12345 67890</p>
-                    <p><i class="bi bi-envelope me-2"></i>info@shankarnursing.com</p>
+                    <p><i class="bi bi-geo-alt me-2"></i>Besides Hero Honda Agency, NH-7, Allahabad Road, Urrht,Rewa,(M.P.)</p>
+                    <p><i class="bi bi-telephone me-2"></i>+91 9424507187, 9229426486</p>
+                    <p><i class="bi bi-envelope me-2"></i>shrivastavaramprakash@yahoo.com</p>
                     <p><i class="bi bi-clock me-2"></i>24/7 Emergency Available</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p class="mb-0">&copy; <?= date('Y') ?> Shankar Nursing Home. All rights reserved.</p>
+                <p class="mb-0">&copy; <?= date('Y') ?> Shankar Nursing Home. All rights reserved. | Powered by  <a href="https://aruncomputer.com/">Arun Computer</a>  |   </p>
             </div>
         </div>
     </footer>

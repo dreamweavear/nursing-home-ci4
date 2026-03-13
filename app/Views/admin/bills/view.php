@@ -51,11 +51,11 @@
             <table class="table table-bordered">
                 <tbody>
                     <tr>
-                        <td>Room Charges</td>
+                        <td>Room Charges [&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;] x No of Days[ &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;]</td>
                         <td class="text-end">₹<?= number_format($bill['room_charges'], 2) ?></td>
                     </tr>
                     <tr>
-                        <td>Doctor Fees</td>
+                        <td>Doctors Visiting Fees</td>
                         <td class="text-end">₹<?= number_format($bill['doctor_fees'], 2) ?></td>
                     </tr>
                     <tr>
@@ -63,11 +63,11 @@
                         <td class="text-end">₹<?= number_format($bill['medicine_charges'], 2) ?></td>
                     </tr>
                     <tr>
-                        <td>Test Charges</td>
+                        <td>Investigations Charges</td>
                         <td class="text-end">₹<?= number_format($bill['test_charges'], 2) ?></td>
                     </tr>
                     <tr>
-                        <td>Other Charges</td>
+                        <td>Other Charges ( Surgeon, Aneastheasia, pediatrician, OT charges, Assistance Charges)</td>
                         <td class="text-end">₹<?= number_format($bill['other_charges'], 2) ?></td>
                     </tr>
                     <tr class="table-light">

@@ -42,11 +42,11 @@
         <h5 class="mb-3">Charges</h5>
         <div class="row">
             <div class="col-md-4 mb-3">
-                <label class="form-label">Room Charges</label>
+                <label class="form-label">Room Charges[  &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;]  x No of Days[ &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;        ] </label>
                 <input type="number" name="room_charges" class="form-control charge-input" value="0" step="0.01">
             </div>
             <div class="col-md-4 mb-3">
-                <label class="form-label">Doctor Fees</label>
+                <label class="form-label">Doctors Visiting Charges</label>
                 <input type="number" name="doctor_fees" class="form-control charge-input" value="0" step="0.01">
             </div>
             <div class="col-md-4 mb-3">
@@ -57,11 +57,11 @@
         
         <div class="row">
             <div class="col-md-4 mb-3">
-                <label class="form-label">Test Charges</label>
+                <label class="form-label">Investigation Charges</label>
                 <input type="number" name="test_charges" class="form-control charge-input" value="0" step="0.01">
             </div>
             <div class="col-md-4 mb-3">
-                <label class="form-label">Other Charges</label>
+                <label class="form-label">Other Charges ( Surgeon, Aneastheasia, pediatrician, OT charges, Assistance Charges)</label>
                 <input type="number" name="other_charges" class="form-control charge-input" value="0" step="0.01">
             </div>
             <div class="col-md-4 mb-3">

@@ -39,7 +39,7 @@
                 Close
             </button>
         </div>
-        
+
         <div class="bill-header">
             <div class="row">
                 <div class="col-8">
@@ -55,7 +55,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="row mb-4">
             <div class="col-6">
                 <h5 class="mb-3">Patient Information:</h5>
@@ -75,7 +75,7 @@
                 <?php endif; ?>
             </div>
         </div>
-        
+
         <table class="table table-bordered">
             <thead class="table-light">
                 <tr>
@@ -85,7 +85,12 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>Room Charges[  &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;] x No of Days[ &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;]</td>
+                    <td>
+                        Room Charges
+                        <?php if (!empty($bill['room_rate']) || !empty($bill['room_days'])): ?>
+                            [₹<?= number_format($bill['room_rate'], 2) ?>/day] × [<?= (int)$bill['room_days'] ?> days]
+                        <?php endif; ?>
+                    </td>
                     <td class="text-end"><?= number_format($bill['room_charges'], 2) ?></td>
                 </tr>
                 <tr>
@@ -101,33 +106,53 @@
                     <td class="text-end"><?= number_format($bill['test_charges'], 2) ?></td>
                 </tr>
                 <tr>
-                    <td>Other Charges ( Surgeon, Aneastheasia, pediatrician, OT charges, Assistance Charges </td>
-                    <td class="text-end"><?= number_format($bill['other_charges'], 2) ?></td> 
+                    <td>Surgery Charges</td>
+                    <td class="text-end"><?= number_format($bill['surgery_charges'] ?? 0, 2) ?></td>
+                </tr>
+                <tr>
+                    <td>Anaesthesia Charges</td>
+                    <td class="text-end"><?= number_format($bill['anaesthesia_charges'] ?? 0, 2) ?></td>
+                </tr>
+                <tr>
+                    <td>OT Charges</td>
+                    <td class="text-end"><?= number_format($bill['ot_charges'] ?? 0, 2) ?></td>
+                </tr>
+                <tr>
+                    <td>Nursing Charges</td>
+                    <td class="text-end"><?= number_format($bill['nursing_charges'] ?? 0, 2) ?></td>
+                </tr>
+                <tr>
+                    <td>Assistance Charges</td>
+                    <td class="text-end"><?= number_format($bill['assistance_charges'] ?? 0, 2) ?></td>
+                </tr>
+                <tr>
+                    <td>Other Charges</td>
+                    <td class="text-end"><?= number_format($bill['other_charges'], 2) ?></td>
                 </tr>
             </tbody>
             <tfoot>
                 <tr class="table-light">
-                    <td class="text-end"><strong>Total Amount</strong></td>
+                    <td class="text-end"><strong>Subtotal</strong></td>
                     <td class="text-end"><strong><?= number_format($bill['total_amount'], 2) ?></strong></td>
                 </tr>
                 <tr>
-                    <td class="text-end">Discount</td>
-                    <td class="text-end"><?= number_format($bill['discount'], 2) ?></td>
+                    <td class="text-end">Discount (<?= number_format($bill['discount_percent'] ?? 0, 2) ?>%)</td>
+                    <td class="text-end">- <?= number_format($bill['discount'], 2) ?></td>
                 </tr>
                 <tr class="table-success">
-                    <td class="text-end"><strong>Net Amount</strong></td>
+                    <td class="text-end"><strong>Final Total</strong></td>
                     <td class="text-end"><strong style="font-size: 1.2em;"><?= number_format($bill['net_amount'], 2) ?></strong></td>
                 </tr>
             </tfoot>
         </table>
-        
+
         <?php if ($bill['notes']): ?>
             <div class="mt-4">
                 <h6>Notes:</h6>
                 <p><?= nl2br(esc($bill['notes'])) ?></p>
             </div>
         <?php endif; ?>
-        
+
         <div class="mt-5 pt-4 border-top">
             <div class="row">
                 <div class="col-6">

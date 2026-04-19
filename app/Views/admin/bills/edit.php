@@ -69,7 +69,7 @@
                 <input type="number" name="test_charges" class="form-control charge-input" value="<?= $bill['test_charges'] ?>" min="0" step="0.01">
             </div>
             <div class="col-md-4 mb-3">
-                <label class="form-label">Surgery Charges</label>
+                <label class="form-label">Surgeon Charges</label>
                 <input type="number" name="surgery_charges" class="form-control charge-input" value="<?= $bill['surgery_charges'] ?? 0 ?>" min="0" step="0.01">
             </div>
             <div class="col-md-4 mb-3">
@@ -88,7 +88,7 @@
                 <input type="number" name="nursing_charges" class="form-control charge-input" value="<?= $bill['nursing_charges'] ?? 0 ?>" min="0" step="0.01">
             </div>
             <div class="col-md-4 mb-3">
-                <label class="form-label">Assistance Charges</label>
+                <label class="form-label">Assistant Charges</label>
                 <input type="number" name="assistance_charges" class="form-control charge-input" value="<?= $bill['assistance_charges'] ?? 0 ?>" min="0" step="0.01">
             </div>
         </div>

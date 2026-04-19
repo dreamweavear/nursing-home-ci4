@@ -11,6 +11,8 @@ class AppointmentModel extends Model
     protected $allowedFields = [
         'patient_name', 'patient_phone', 'patient_email', 'doctor_id',
         'appointment_date', 'appointment_time', 'reason', 'status', 'notes',
+        'patient_ref_id', 'appt_type',
+        'bp', 'pulse', 'spo2', 'rr', 'temperature', 'weight',
         'created_at', 'updated_at'
     ];
     protected $useTimestamps = true;
@@ -29,6 +31,15 @@ class AppointmentModel extends Model
         return $this->select('appointments.*, doctors.name as doctor_name, doctors.specialization')
                     ->join('doctors', 'doctors.id = appointments.doctor_id')
                     ->orderBy('appointment_date', 'DESC')
+                    ->findAll();
+    }
+
+    public function getAppointmentsWithPatientLink()
+    {
+        return $this->select('appointments.*, doctors.name as doctor_name, doctors.specialization, patients.patient_id as uhid')
+                    ->join('doctors', 'doctors.id = appointments.doctor_id')
+                    ->join('patients', 'patients.id = appointments.patient_ref_id', 'left')
+                    ->orderBy('appointments.appointment_date', 'DESC')
                     ->findAll();
     }
     /*

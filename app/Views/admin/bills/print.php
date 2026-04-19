@@ -22,6 +22,7 @@
         @media print {
             body {
                 padding: 0;
+                zoom: 80%;
             }
             .no-print {
                 display: none !important;
@@ -106,7 +107,7 @@
                     <td class="text-end"><?= number_format($bill['test_charges'], 2) ?></td>
                 </tr>
                 <tr>
-                    <td>Surgery Charges</td>
+                    <td>Surgeon Charges</td>
                     <td class="text-end"><?= number_format($bill['surgery_charges'] ?? 0, 2) ?></td>
                 </tr>
                 <tr>
@@ -122,7 +123,7 @@
                     <td class="text-end"><?= number_format($bill['nursing_charges'] ?? 0, 2) ?></td>
                 </tr>
                 <tr>
-                    <td>Assistance Charges</td>
+                    <td>Assistant Charges</td>
                     <td class="text-end"><?= number_format($bill['assistance_charges'] ?? 0, 2) ?></td>
                 </tr>
                 <tr>

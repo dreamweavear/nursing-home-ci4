@@ -29,10 +29,13 @@ $routes->group('admin', ['filter' => 'auth'], function($routes) {
     $routes->get('patients', 'Admin\Patients::index');
     $routes->get('patients/create', 'Admin\Patients::create');
     $routes->post('patients/store', 'Admin\Patients::store');
+    $routes->get('patients/search', 'Admin\Patients::search');
     $routes->get('patients/edit/(:num)', 'Admin\Patients::edit/$1');
     $routes->post('patients/update/(:num)', 'Admin\Patients::update/$1');
     $routes->get('patients/delete/(:num)', 'Admin\Patients::delete/$1');
     $routes->get('patients/view/(:num)', 'Admin\Patients::view/$1');
+    $routes->get('patients/convert-to-ipd/(:num)', 'Admin\Patients::convertToIpd/$1');
+    $routes->post('patients/convert-to-ipd/(:num)', 'Admin\Patients::convertToIpd/$1');
     
     // Staff
     $routes->get('staff', 'Admin\Staff::index');
@@ -66,6 +69,10 @@ $routes->group('admin', ['filter' => 'auth'], function($routes) {
     $routes->post('inquiries/update-status/(:num)', 'Admin\Inquiries::updateStatus/$1');
     $routes->get('inquiries/delete/(:num)', 'Admin\Inquiries::delete/$1');
     
+    // Profile / Password Change
+    $routes->get('profile', 'Admin\Auth::profile');
+    $routes->post('profile/change-password', 'Admin\Auth::changePassword');
+
     // Bills
     $routes->get('bills', 'Admin\Bills::index');
     $routes->get('bills/create', 'Admin\Bills::create');

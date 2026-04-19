@@ -67,6 +67,16 @@
         .form-control {
             border-left: none;
         }
+        .toggle-password {
+            background: transparent;
+            border: 2px solid #e9ecef;
+            border-left: none;
+            color: #6c757d;
+            cursor: pointer;
+        }
+        .toggle-password:hover {
+            color: #11998e;
+        }
     </style>
 </head>
 <body>
@@ -109,7 +119,10 @@
                     <label class="form-label fw-bold">Password</label>
                     <div class="input-group">
                         <span class="input-group-text"><i class="bi bi-lock"></i></span>
-                        <input type="password" name="password" class="form-control" placeholder="Enter your password" required>
+                        <input type="password" name="password" id="passwordField" class="form-control" placeholder="Enter your password" required>
+                        <button type="button" class="btn toggle-password" onclick="togglePassword()">
+                            <i class="bi bi-eye" id="toggleIcon"></i>
+                        </button>
                     </div>
                     <?php if (session()->getFlashdata('errors')['password'] ?? false): ?>
                         <small class="text-danger"><?= session()->getFlashdata('errors')['password'] ?></small>
@@ -128,5 +141,18 @@
     </div>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function togglePassword() {
+            var field = document.getElementById('passwordField');
+            var icon  = document.getElementById('toggleIcon');
+            if (field.type === 'password') {
+                field.type = 'text';
+                icon.classList.replace('bi-eye', 'bi-eye-slash');
+            } else {
+                field.type = 'password';
+                icon.classList.replace('bi-eye-slash', 'bi-eye');
+            }
+        }
+    </script>
 </body>
 </html>

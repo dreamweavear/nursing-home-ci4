@@ -237,6 +237,9 @@
             <a href="<?= base_url('admin/inquiries') ?>" class="<?= (strpos(uri_string(), 'admin/inquiries') !== false) ? 'active' : '' ?>">
                 <i class="bi bi-envelope"></i> Inquiries
             </a>
+            <a href="<?= base_url('admin/profile') ?>" class="<?= (strpos(uri_string(), 'admin/profile') !== false) ? 'active' : '' ?>">
+                <i class="bi bi-person-gear"></i> Profile
+            </a>
             <a href="<?= base_url('admin/logout') ?>">
                 <i class="bi bi-box-arrow-right"></i> Logout
             </a>

@@ -5,6 +5,7 @@ namespace App\Controllers\Admin;
 use App\Controllers\BaseController;
 use App\Models\AppointmentModel;
 use App\Models\DoctorModel;
+use App\Models\PatientModel;
 //whatsapp message send karne ke liye library import kiya hai
 use App\Libraries\WhatsAppService;
 
@@ -12,11 +13,13 @@ class Appointments extends BaseController
 {
     protected $appointmentModel;
     protected $doctorModel;
-    
+    protected $patientModel;
+
     public function __construct()
     {
         $this->appointmentModel = new AppointmentModel();
         $this->doctorModel = new DoctorModel();
+        $this->patientModel = new PatientModel();
     }
     
     public function index()
@@ -42,10 +45,11 @@ class Appointments extends BaseController
     public function create()
     {
         $data = [
-            'title' => 'Book Appointment - Shankar Nursing Home',
-            'doctors' => $this->doctorModel->getActiveDoctors()
+            'title'    => 'Book Appointment - Shankar Nursing Home',
+            'doctors'  => $this->doctorModel->getActiveDoctors(),
+            'patients' => $this->patientModel->select('id, patient_id, name, phone, email')->findAll(),
         ];
-        
+
         return view('admin/appointments/create', $data);
     }
     
@@ -66,16 +70,24 @@ class Appointments extends BaseController
         }
         
         $data = [
-            'patient_name' => $this->request->getPost('patient_name'),
-            'patient_phone' => $this->request->getPost('patient_phone'),
-            'patient_email' => $this->request->getPost('patient_email'),
-            'doctor_id' => $this->request->getPost('doctor_id'),
+            'patient_name'     => $this->request->getPost('patient_name'),
+            'patient_phone'    => $this->request->getPost('patient_phone'),
+            'patient_email'    => $this->request->getPost('patient_email'),
+            'doctor_id'        => $this->request->getPost('doctor_id'),
             'appointment_date' => $this->request->getPost('appointment_date'),
             'appointment_time' => $this->request->getPost('appointment_time'),
-            'reason' => $this->request->getPost('reason'),
-            'status' => 'Pending',
+            'reason'           => $this->request->getPost('reason'),
+            'status'           => 'Pending',
+            'patient_ref_id'   => $this->request->getPost('patient_ref_id') ?: null,
+            'appt_type'        => $this->request->getPost('appt_type') ?? 'OPD',
+            'bp'               => $this->request->getPost('bp') ?: null,
+            'pulse'            => $this->request->getPost('pulse') ?: null,
+            'spo2'             => $this->request->getPost('spo2') ?: null,
+            'rr'               => $this->request->getPost('rr') ?: null,
+            'temperature'      => $this->request->getPost('temperature') ?: null,
+            'weight'           => $this->request->getPost('weight') ?: null,
         ];
-        
+
         $this->appointmentModel->insert($data);
         // WhatsApp message send karne ke liye code
             // ================= WHATSAPP SEND =================
@@ -143,17 +155,25 @@ $whatsapp->send($phone, $message);
         }
         
         $data = [
-            'patient_name' => $this->request->getPost('patient_name'),
-            'patient_phone' => $this->request->getPost('patient_phone'),
-            'patient_email' => $this->request->getPost('patient_email'),
-            'doctor_id' => $this->request->getPost('doctor_id'),
+            'patient_name'     => $this->request->getPost('patient_name'),
+            'patient_phone'    => $this->request->getPost('patient_phone'),
+            'patient_email'    => $this->request->getPost('patient_email'),
+            'doctor_id'        => $this->request->getPost('doctor_id'),
             'appointment_date' => $this->request->getPost('appointment_date'),
             'appointment_time' => $this->request->getPost('appointment_time'),
-            'reason' => $this->request->getPost('reason'),
-            'status' => $this->request->getPost('status'),
-            'notes' => $this->request->getPost('notes'),
+            'reason'           => $this->request->getPost('reason'),
+            'status'           => $this->request->getPost('status'),
+            'notes'            => $this->request->getPost('notes'),
+            'patient_ref_id'   => $this->request->getPost('patient_ref_id') ?: null,
+            'appt_type'        => $this->request->getPost('appt_type') ?? 'OPD',
+            'bp'               => $this->request->getPost('bp') ?: null,
+            'pulse'            => $this->request->getPost('pulse') ?: null,
+            'spo2'             => $this->request->getPost('spo2') ?: null,
+            'rr'               => $this->request->getPost('rr') ?: null,
+            'temperature'      => $this->request->getPost('temperature') ?: null,
+            'weight'           => $this->request->getPost('weight') ?: null,
         ];
-        
+
         $this->appointmentModel->update($id, $data);
         
         return redirect()->to('admin/appointments')

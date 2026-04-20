@@ -58,10 +58,13 @@ $routes->group('admin', ['filter' => 'auth'], function($routes) {
     $routes->get('appointments/today', 'Admin\Appointments::today');
     $routes->get('appointments/create', 'Admin\Appointments::create');
     $routes->post('appointments/store', 'Admin\Appointments::store');
+    $routes->get('appointments/view/(:num)', 'Admin\Appointments::view/$1');
     $routes->get('appointments/edit/(:num)', 'Admin\Appointments::edit/$1');
     $routes->post('appointments/update/(:num)', 'Admin\Appointments::update/$1');
     $routes->get('appointments/delete/(:num)', 'Admin\Appointments::delete/$1');
     $routes->post('appointments/update-status/(:num)', 'Admin\Appointments::updateStatus/$1');
+    $routes->post('appointments/prescription/(:num)', 'Admin\Appointments::savePrescription/$1');
+    $routes->get('appointments/print-prescription/(:num)', 'Admin\Appointments::printPrescription/$1');
     
     // Inquiries
     $routes->get('inquiries', 'Admin\Inquiries::index');

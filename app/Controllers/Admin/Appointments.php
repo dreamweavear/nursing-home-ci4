@@ -195,6 +195,67 @@ $whatsapp->send($phone, $message);
                         ->with('success', 'Appointment deleted successfully.');
     }
     
+    public function view($id)
+    {
+        $appointment = $this->appointmentModel
+            ->select('appointments.*, doctors.name as doctor_name, doctors.specialization, doctors.phone as doctor_phone')
+            ->join('doctors', 'doctors.id = appointments.doctor_id')
+            ->where('appointments.id', $id)
+            ->first();
+
+        if (!$appointment) {
+            return redirect()->to('admin/appointments')
+                            ->with('error', 'Appointment not found.');
+        }
+
+        $data = [
+            'title'       => 'Appointment Details - Shankar Nursing Home',
+            'appointment' => $appointment,
+        ];
+
+        return view('admin/appointments/view', $data);
+    }
+
+    public function savePrescription($id)
+    {
+        $appointment = $this->appointmentModel->find($id);
+
+        if (!$appointment) {
+            return redirect()->to('admin/appointments')
+                            ->with('error', 'Appointment not found.');
+        }
+
+        $data = [
+            'chief_complaint' => $this->request->getPost('chief_complaint') ?: null,
+            'diagnosis'       => $this->request->getPost('diagnosis') ?: null,
+            'prescription'    => $this->request->getPost('prescription') ?: null,
+            'advice'          => $this->request->getPost('advice') ?: null,
+            'followup_date'   => $this->request->getPost('followup_date') ?: null,
+            'status'          => 'Completed',
+        ];
+
+        $this->appointmentModel->update($id, $data);
+
+        return redirect()->to('admin/appointments/view/' . $id)
+                        ->with('success', 'Prescription saved successfully.');
+    }
+
+    public function printPrescription($id)
+    {
+        $appointment = $this->appointmentModel
+            ->select('appointments.*, doctors.name as doctor_name, doctors.specialization')
+            ->join('doctors', 'doctors.id = appointments.doctor_id')
+            ->where('appointments.id', $id)
+            ->first();
+
+        if (!$appointment) {
+            return redirect()->to('admin/appointments')
+                            ->with('error', 'Appointment not found.');
+        }
+
+        return view('admin/appointments/prescription_print', ['appointment' => $appointment]);
+    }
+
     public function updateStatus($id)
     {
         $status = $this->request->getPost('status');

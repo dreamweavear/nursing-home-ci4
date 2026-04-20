@@ -241,11 +241,6 @@ class Patients extends BaseController
                             ->with('success', 'Patient converted to IPD successfully.');
         }
 
-        $data = [
-            'title'   => 'Convert to IPD - Shankar Nursing Home',
-            'patient' => $patient,
-            'doctors' => $this->doctorModel->getActiveDoctors(),
-        ];
-        return view('admin/patients/convert_ipd', $data);
+        return redirect()->to('admin/patients/view/' . $id);
     }
 }

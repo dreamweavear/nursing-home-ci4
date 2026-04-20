@@ -13,6 +13,7 @@ class AppointmentModel extends Model
         'appointment_date', 'appointment_time', 'reason', 'status', 'notes',
         'patient_ref_id', 'appt_type',
         'bp', 'pulse', 'spo2', 'rr', 'temperature', 'weight',
+        'chief_complaint', 'diagnosis', 'prescription', 'advice', 'followup_date',
         'created_at', 'updated_at'
     ];
     protected $useTimestamps = true;

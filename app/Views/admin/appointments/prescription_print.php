@@ -49,6 +49,30 @@
             .no-print { display: none !important; }
         }
 
+
+
+            @media print {
+    body { background: #fff; }
+    .page { padding: 8mm 12mm; }
+    .no-print { display: none !important; }
+    
+    /* Footer page ke bilkul neeche fix */
+    .footer {
+        position: fixed;
+        bottom: 10mm;
+        left: 12mm;
+        right: 12mm;
+        border-top: 2px solid #1a5276;
+        padding-top: 8px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        background: #fff;
+    }
+}
+
+
+
         .no-print { text-align: center; margin: 16px 0; }
         .no-print button { padding: 8px 28px; font-size: 14px; background: #1a5276; color: #fff; border: none; border-radius: 4px; cursor: pointer; }
     </style>
@@ -63,12 +87,12 @@
     <!-- Header -->
     <div class="header" style="display:flex; justify-content:space-between; align-items:flex-start;">
         <div>
-            <div class="clinic-name">Shankar Nursing Home</div>
+            <div class="clinic-name">Mithlesh Nursing Home</div>
             <div class="clinic-tagline">Quality Healthcare — Compassionate Care</div>
         </div>
         <div class="clinic-contact">
             Ph: +91-XXXXXXXXXX<br>
-            Shankar Nagar, [City], [State]
+            Behind Pawar Gas Godown,Allahabad Road, Urrhat, Rewa, (M.P.)
         </div>
     </div>
 
@@ -150,7 +174,7 @@
     <!-- Footer / Signature -->
     <div class="footer">
         <div style="font-size:11px; color:#777;">
-            Generated on <?= date('d M Y, h:i A') ?> | Shankar Nursing Home
+            Generated on <?= date('d M Y, h:i A') ?> | Mithlesh Nursing Home
         </div>
         <div class="signature-line">
             <hr>

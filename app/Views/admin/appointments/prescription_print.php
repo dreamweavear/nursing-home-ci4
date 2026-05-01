@@ -174,7 +174,7 @@
     <!-- Footer / Signature -->
     <div class="footer">
         <div style="font-size:11px; color:#777;">
-            Generated on <?= date('d M Y, h:i A') ?> | Mithlesh Nursing Home
+            Generated on <?= date('d M Y, h:i A') ?> | Shankar Nursing Home
         </div>
         <div class="signature-line">
             <hr>

@@ -87,12 +87,12 @@
     <!-- Header -->
     <div class="header" style="display:flex; justify-content:space-between; align-items:flex-start;">
         <div>
-            <div class="clinic-name">Mithlesh Nursing Home</div>
+            <div class="clinic-name">Shankar Nursing Home</div>
             <div class="clinic-tagline">Quality Healthcare — Compassionate Care</div>
         </div>
         <div class="clinic-contact">
-            Ph: +91-XXXXXXXXXX<br>
-            Behind Pawar Gas Godown,Allahabad Road, Urrhat, Rewa, (M.P.)
+            Ph: +91-9424507187, 9229426486<br>
+            Besides Hero Honda Agency, NH-7, Allahabad Road, Urrhat,Rewa(M.P.)
         </div>
     </div>
 

@@ -240,6 +240,13 @@
             <a href="<?= base_url('admin/bills') ?>" class="<?= (strpos(uri_string(), 'admin/bills') !== false) ? 'active' : '' ?>">
                 <i class="bi bi-receipt"></i> Billing
             </a>
+            <a href="<?= base_url('admin/collection') ?>" class="<?= (strpos(uri_string(), 'admin/collection') !== false) ? 'active' : '' ?>">
+            <i class="bi bi-bar-chart-line"></i> Collection Report
+            </a>
+
+
+
+
             <a href="<?= base_url('admin/inquiries') ?>" class="<?= (strpos(uri_string(), 'admin/inquiries') !== false) ? 'active' : '' ?>">
                 <i class="bi bi-envelope"></i> Inquiries
             </a>

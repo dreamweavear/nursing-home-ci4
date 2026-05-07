@@ -87,6 +87,15 @@ $routes->group('admin', ['filter' => 'auth'], function($routes) {
     $routes->get('bills/pdf/(:num)', 'Admin\Bills::downloadPdf/$1');
     $routes->post('bills/update-payment/(:num)', 'Admin\Bills::updatePayment/$1');
     $routes->get('bills/delete/(:num)', 'Admin\Bills::delete/$1');
+
+// collections
+$routes->get('collection', 'Admin\Collection::index');
+
+$routes->get('collection/excel', 'Admin\Collection::excel');
+$routes->get('collection/pdf', 'Admin\Collection::pdf');
+
+
+
 });
 
 // Default redirect
